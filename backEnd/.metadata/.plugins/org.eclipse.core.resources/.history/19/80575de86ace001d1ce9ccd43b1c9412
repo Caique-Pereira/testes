@@ -1,0 +1,21 @@
+package com.users.demo.services;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.users.demo.dto.UserDTO;
+import com.users.demo.repository.userRepository;
+
+public class UserService {
+	
+	@Autowired
+	userRepository userRepo;
+
+	public ArrayList<UserDTO> listAll() {
+		ArrayList<UserDTO> users = new ArrayList<>();
+
+	}
+
+}

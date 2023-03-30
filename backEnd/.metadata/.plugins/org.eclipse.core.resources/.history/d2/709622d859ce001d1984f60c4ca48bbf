@@ -1,0 +1,18 @@
+package com.users.demo.entities;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table
+public class Users {
+
+	
+
+@
+private long id;
+
+	
+	
+	
+}

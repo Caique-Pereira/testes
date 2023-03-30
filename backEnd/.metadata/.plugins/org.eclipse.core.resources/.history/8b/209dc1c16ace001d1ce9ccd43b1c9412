@@ -1,0 +1,15 @@
+package com.users.demo.services;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import com.users.demo.dto.UserDTO;
+
+public class UserService {
+
+	public ArrayList<UserDTO> listAll() {
+		ArrayList<UserDTO> users = new ArrayList<>();
+
+	}
+
+}

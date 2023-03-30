@@ -1,0 +1,48 @@
+package palindromo;
+
+public class quadrado implements FormaGeometricas {
+	
+	private float base = 0;
+	private float altura = 0;
+	
+	
+	
+	@Override
+	public void areaTotal(int base, int altura) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+	public float getBase() {
+		return base;
+	}
+
+
+
+
+	public void setBase(float base) {
+		this.base = base;
+	}
+
+
+
+
+	public float getAltura() {
+		return altura;
+	}
+
+
+
+
+	public void setAltura(float altura) {
+		this.altura = altura;
+	}
+
+
+
+
+	
+
+}

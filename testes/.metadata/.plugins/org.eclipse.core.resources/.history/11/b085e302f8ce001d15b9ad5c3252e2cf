@@ -1,0 +1,64 @@
+package palindromo;
+
+import java.util.Scanner;
+
+public class Application {
+
+	public static void main(String[] args) {
+
+		// System.out.println(palindromo());
+		// tabuada();
+		// calcularSalario();
+		formasGeometricas();
+
+	}
+
+	public static boolean palindromo() {
+		System.out.println("Digite uma palavra");
+		Scanner sc = new Scanner(System.in);
+		String txt = sc.next();
+		String txtReverse = new StringBuilder(txt).reverse().toString();
+		sc.close();
+
+		if (txtReverse.toLowerCase().equals(txt.toLowerCase()))
+			return true;
+		else
+			return false;
+
+	}
+
+	public static void tabuada() {
+
+		for (int x = 1; x < 11; x++) {
+			for (int y = 0; y < 11; y++) {
+				System.out.println(x + "x" + y + " = " + x * y);
+			}
+
+			System.out.println("============================");
+		}
+	}
+
+	public static void calcularSalario() {
+
+		System.out.println("Digite o salalario");
+		Scanner sc = new Scanner(System.in);
+		Float salary = sc.nextFloat();
+		System.out.println("Digite o percentual de reajuste");
+		Float percent = sc.nextFloat();
+		Float value = salary * (percent / 100);
+		System.out.println("o novo salario do funcionario é de " + (salary + value));
+
+	}
+
+	public static void formasGeometricas() {
+		quadrado qua = new quadrado(3);
+		trinagulo tri = new trinagulo(3,2);
+		retangulo reta = new retangulo(30,2);
+		
+		System.out.println(qua.areaTotal());
+		System.out.println(tri.areaTotal());
+		System.out.println( reta.areaTotal());
+		
+	}
+
+}

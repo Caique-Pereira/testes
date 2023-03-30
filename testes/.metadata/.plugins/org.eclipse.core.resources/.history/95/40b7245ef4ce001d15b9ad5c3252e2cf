@@ -1,0 +1,7 @@
+package palindromo;
+
+public interface FormaGeometricas {
+	
+	public void areaTotal(int base , int altura);
+
+}

@@ -1,0 +1,44 @@
+package palindromo;
+
+public class quadrado implements FormaGeometricas {
+
+	private int lado2 = 0;
+	private int lado2 = 0;
+
+	public quadrado() {
+	}
+
+	public quadrado(int lado2, int lado2) {
+		this.lado = lado;
+		this.lado2 = lado2;
+		areaTotal(base, altura);
+
+	}
+
+	@Override
+	public int areaTotal(int base, int altura) {
+		if(base != altura) {
+		  
+			System.out.println("Erro, os tamanhos especificados não formam um quadrado, os lados devem ser iguais");
+		}
+		
+		return base * altura;
+	}
+
+	public int getBase() {
+		return base;
+	}
+
+	public void setBase(int base) {
+		this.base = base;
+	}
+
+	public int getAltura() {
+		return altura;
+	}
+
+	public void setAltura(int altura) {
+		this.altura = altura;
+	}
+
+}

@@ -1,0 +1,33 @@
+package com.users.demo.dto;
+
+import java.io.Serializable;
+
+import com.users.demo.entities.Users;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class UserDTO implements Serializable  {
+	private static final long serialVersionUID = 1L;
+	
+public UserDTO() {}
+
+public UserDto(Users entity) {
+	this.id = entity.id;
+	this.age = entity.age;
+	this.cpf = entity.cpf;
+	
+}
+
+	
+	
+private long id;
+private int age;
+private String cpf;
+
+
+
+	
+}

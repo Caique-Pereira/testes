@@ -1,0 +1,77 @@
+package com.users.demo.services;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.client.UnknownHttpStatusCodeException;
+
+import com.users.demo.dto.UserDTO;
+import com.users.demo.entities.Users;
+import com.users.demo.entities.UsersExceptions;
+import com.users.demo.repository.userRepository;
+
+public class UserService {
+	
+	@Autowired
+	userRepository userRepo;
+
+	@Autowired
+	UsersExceptions exceptions;
+	
+	public ArrayList<UserDTO> listAll() {
+	ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
+	Iterable<Users> list = userRepo.findAll();
+	list.forEach(x -> userList.add(new UserDTO(x)));
+	return userList;
+ 
+	}
+	
+	public UserDTO insert(Optional<UserDTO> dto){
+		Users user = copyDtoToEntity(dto);
+		userRepo.save(user); 
+		return new UserDTO(user);
+	}
+	
+	
+	@PutMapping("/")
+	public ResponseEntity<?> update(@RequestBody UserDTO dto){
+		Users user = copyDtoToEntity(userRepo.findById(dto.getId()));
+		
+		if(user == null)
+			exceptions.setMessage("Invalid user");
+			return new ResponseEntity<UsersExceptions>(exceptions , HttpStatus.NOT_FOUND);	
+		else
+			return new ResponseEntity<UserDto>(userRepo.save(user), HttpStatus.OK);
+	
+			
+			
+		userRepo.save(user);
+		return new UserDTO(user);		
+	}
+	
+	
+	
+	public Users copyDtoToEntity(Optional<UserDTO> optional) {
+		Users user = new Users();
+		user.setAge(optional.get().getAge());
+		user.setCpf(optional.get().getCpf());
+		user.setName(optional.get().getName());
+		return user;
+	} 
+	
+	public Users copyEntityToDTO(Optional<Users> optional) {
+		Users user = new Users();
+		user.setAge(optional.get().getAge());
+		user.setCpf(optional.get().getCpf());
+		user.setName(optional.get().getName());
+		return user;
+	} 
+
+}

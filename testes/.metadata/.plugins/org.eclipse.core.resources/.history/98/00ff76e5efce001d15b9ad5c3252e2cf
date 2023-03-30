@@ -1,0 +1,42 @@
+package palindromo;
+
+import java.util.Scanner;
+
+public class Application {
+
+	public static void main(String[] args) {
+
+		//System.out.println(palindromo());
+		//tabuada();
+		calcularSalario();
+
+	}
+
+	public static boolean palindromo() {
+		System.out.println("Digite uma palavra");
+		Scanner sc = new Scanner(System.in);
+		String txt = sc.next();
+		String txtReverse = new StringBuilder(txt).reverse().toString();;
+		sc.close();
+
+		if (txtReverse.toLowerCase().equals(txt.toLowerCase()))
+			return true;
+		else
+			return false;
+
+	}
+	
+	public static void tabuada() {
+		
+		for( int x=1; x<11; x++) {
+			for(int y=0; y<11; y++) {
+				System.out.println(x + "x" + y + " = " + x*y);
+			}
+			
+			System.out.println("============================");
+		}
+	}
+
+	
+		
+}

@@ -1,0 +1,19 @@
+package com.users.demo.controllers;
+
+
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+public class userConttoller {
+
+	
+	@GetMapping("/list")
+	public String a() {
+		return "sei la não sei ein, eu sou novo tambem";
+	}
+	
+	
+}

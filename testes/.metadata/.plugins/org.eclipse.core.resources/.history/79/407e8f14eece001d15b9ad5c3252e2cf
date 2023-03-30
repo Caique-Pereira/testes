@@ -1,0 +1,20 @@
+package palindromo;
+
+import java.util.Scanner;
+
+public class Application {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Digite uma palavra);
+		Scanner sc = new Scanner(System.in);
+		String txt = sc.next();
+		String txtReverse = new StringBuilder(txt).reverse().toString();
+		
+		System.out.println(txt);
+		System.out.println(txtReverse);
+		
+		sc.close();
+	}
+
+}

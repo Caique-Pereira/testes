@@ -1,0 +1,45 @@
+package com.users.demo.services;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+
+import com.users.demo.dto.UserDTO;
+import com.users.demo.entities.Users;
+import com.users.demo.repository.userRepository;
+
+public class UserService {
+	
+	@Autowired
+	userRepository userRepo;
+
+	
+	public ArrayList<UserDTO> listAll() {
+	ArrayList<UserDTO> userList = new ArrayList<UserDTO>();
+	Iterable<Users> list = userRepo.findAll();
+	list.forEach(x -> userList.add(new UserDTO(x)));
+	return userList;
+ 
+	}
+	
+	public UserDTO insert(UserDTO dto){
+		Users user = copyDtoToEntity(dto) 
+		userRepo.save(user); 
+		return new UserDTO(user);
+	}
+	
+	
+	
+	
+	
+	public Users copyDtoToEntity(UserDTO dto) {
+		Users user = new Users();
+		user.setAge(dto.getAge());
+		user.setCpf(dto.getCpf());
+		user.setName(dto.getName());
+		return user;
+	} 
+
+}
